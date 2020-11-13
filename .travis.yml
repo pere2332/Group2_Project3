@@ -1,1 +1,5 @@
 language: java
+jdk:
+  - openjdk8
+  
+scipt: ./mvnw clean install
