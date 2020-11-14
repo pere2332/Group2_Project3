@@ -1,5 +1,3 @@
-language: java
+language: Android JDK
 jdk:
-  - openjdk8
-  
-scipt: ./mvnw clean install
+  - oraclejdk8
