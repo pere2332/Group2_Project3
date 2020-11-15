@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
         if(TextUtils.isEmpty(username)){
-            Toast.makeText(this, "Please enter your Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your Username", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phone)){
             Toast.makeText(this, "Please enter your Phone Number", Toast.LENGTH_SHORT).show();
@@ -109,7 +109,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Username ( " + username + " ) already Exists!", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                     Toast.makeText(RegisterActivity.this, "Please try another Username!", Toast.LENGTH_SHORT).show();
-
                 }
             }
 
