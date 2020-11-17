@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
@@ -33,7 +34,12 @@ public class  RegisterActivity extends AppCompatActivity {
     private EditText nameEditText, phoneEditText, passwordEditText;
     private ProgressDialog loadingBar;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private FirebaseAuth currentUser;
+
+    //Firestore connection. firestore is just a sub section of firestore
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +52,7 @@ public class  RegisterActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.register_password_input);
         loadingBar = new ProgressDialog(this);
 
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+
 
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,20 +82,6 @@ public class  RegisterActivity extends AppCompatActivity {
             loadingBar.setMessage("Please wait...");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
-
-
-            // [START create_user_with_email]
-            mAuth.createUserWithEmailAndPassword(username, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                            }
-                        }
-                    });
-            // [END create_user_with_email]
 
 
             ValidUser(username, phone, password);
