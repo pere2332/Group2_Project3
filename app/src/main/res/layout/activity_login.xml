@@ -24,7 +24,7 @@
         android:layout_below="@id/login_Applogo"
         android:background="@drawable/input_design"
         android:padding="22dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Username"
@@ -53,7 +53,7 @@
         android:textStyle="bold"
         />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/linear_layout_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         >
 
         <com.rey.material.widget.CheckBox
-            android:id="@+id/remember_me_ck"
+            android:id="@+id/remember_user_ck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.CheckBox"
@@ -76,14 +76,14 @@
             android:layout_marginLeft="17dp"
             />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout_1"
-        android:layout_marginTop="15dp"
+        android:layout_below="@+id/login_password_input"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/buttons"
@@ -94,18 +94,33 @@
         android:textColor="@color/colorWhite"
         />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/admin_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_btn"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="35dp"
-        android:text="I'm an Admin"
+        android:text="Login as Admin"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="22sp"
         android:textStyle="bold"
-        />-->
+        />
+
+    <TextView
+        android:id="@+id/User_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_btn"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="35dp"
+        android:text="Login as User"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        />
 
 </RelativeLayout>

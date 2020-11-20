@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.group2_project3.Model.Users;
@@ -19,11 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginBtn;
     private EditText usernameEditText, passwordEditText;
     private ProgressDialog loadingBar;
+    private TextView userLogin, adminLogin;
 
     private String parentDbName = "Users";
 
@@ -36,11 +39,22 @@ public class LoginActivity extends AppCompatActivity {
         usernameEditText = (EditText) findViewById(R.id.login_username_input);
         passwordEditText = (EditText) findViewById(R.id.login_password_input);
         loadingBar = new ProgressDialog(this);
+        adminLogin = (TextView) findViewById(R.id.admin_link);
+        userLogin = (TextView) findViewById(R.id.User_link);
 
+        // Login button listener
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LoginUser();
+            }
+        });
+
+        // Admin login listener
+        adminLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Todo admin login activity
             }
         });
     }
