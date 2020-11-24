@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminCategoryActivity">
+
+    <TextView
+        android:id="@+id/title_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Add New/Used Vehicle"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        />
+
+    <LinearLayout
+        android:id="@+id/linear1_newVehicle_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/title_category"
+        >
+
+        <ImageView
+            android:id="@+id/newVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/newvehicle"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Vehicle"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_marginTop="-30dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2_usedVehicle_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/linear1_newVehicle_layout"
+        >
+
+        <ImageView
+            android:id="@+id/usedVehicle"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/newVehicle"
+            android:layout_marginTop="50dp"
+            android:layout_height="200dp"
+            android:src="@drawable/usedvehicle"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Used Vehicle"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_marginTop="-15dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
