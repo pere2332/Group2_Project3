@@ -34,7 +34,7 @@
             android:id="@+id/newVehicle"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:src="@drawable/newvehicle"
+            android:src="@drawable/new_vehicle"
             />
 
         <TextView
@@ -65,7 +65,7 @@
             android:layout_below="@id/newVehicle"
             android:layout_marginTop="50dp"
             android:layout_height="200dp"
-            android:src="@drawable/usedvehicle"
+            android:src="@drawable/used_vehicle"
             />
 
         <TextView
