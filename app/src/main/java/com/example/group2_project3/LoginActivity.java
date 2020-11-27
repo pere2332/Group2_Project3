@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private TextView userLogin, adminLogin;
 
-    private String parentDbName = "Users";
+    private String parentDbName = "Users"; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
