@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminAddNewProductActivity">
+
+    <ImageView
+        android:id="@+id/select_vehicle_image"
+        android:layout_width="350dp"
+        android:layout_height="230dp"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/select_vehicle_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        />
+
+    <EditText
+        android:id="@+id/vehicle_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_vehicle_image"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:hint="Vehicle Name"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_design"
+        />
+
+    <EditText
+        android:id="@+id/vehicle_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicle_name"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:hint="Year"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_design"
+        />
+
+    <EditText
+        android:id="@+id/vehicle_mileage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicle_year"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:hint="Mileage"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_design"
+        />
+
+    <EditText
+        android:id="@+id/vehicle_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicle_mileage"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:hint="Vehicle Description"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_design"
+        />
+
+    <EditText
+        android:id="@+id/vehicle_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicle_description"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:hint="Price $"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_design"
+        />
+
+    <Button
+        android:id="@+id/add_new_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vehicle_price"
+        android:layout_marginTop="15dp"
+        android:text="Add Vehicle"
+        android:padding="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/buttons"
+        />
+
+
+
+
+
+</RelativeLayout>
