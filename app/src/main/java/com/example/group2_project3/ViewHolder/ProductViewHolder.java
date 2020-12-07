@@ -11,8 +11,7 @@ import com.example.group2_project3.Interface.ItemClickListener;
 import com.example.group2_project3.R;
 
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-    public TextView txtProductName, txtProductDescription;
+    public TextView txtProductName, txtProductDescription, txtProductPrice;
     public ImageView mImageView;
     public ItemClickListener listener;
 
@@ -21,6 +20,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
         mImageView = (ImageView) itemView.findViewById(R.id.product_image);
         txtProductName = (TextView) itemView.findViewById(R.id.product_name);
         txtProductDescription = (TextView) itemView.findViewById(R.id.product_description);
+        txtProductPrice = (TextView) itemView.findViewById(R.id.product_price);
 
     }
 
@@ -31,6 +31,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     //throwing error , jerry
     @Override
     public void onClick(View view) {
-       // listener.onClick(view, getAdapterPosition(), false);
+//         listener.onClick(view, getAdapterPosition(), false);
     }
+
 }
