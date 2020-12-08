@@ -1,23 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contextClickable="false"
-    tools:context=".HomeActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Welcome!"/>
+
+    <ImageView
+        android:id="@+id/newButton"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:clickable="true"
+        android:src="@drawable/new_vehicle"
+        app:layout_constraintTop_toBottomOf="@id/welcome"/>
+
+    <ImageView
+        android:id="@+id/usedButton"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="64dp"
+        android:clickable="true"
+        android:src="@drawable/used_vehicle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newButton" />
+
 
     <Button
-        android:id="@+id/logout_Btn"
-        android:layout_width="wrap_content"
+        android:id="@+id/videoButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:text="video show"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="301dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="310dp"
-        android:text="Logout" />
-</RelativeLayout>
+        android:text="LOGOUT"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="190dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="New Cars"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/usedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newButton" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="196dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="Used Cars"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usedButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
