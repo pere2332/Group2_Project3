@@ -53,7 +53,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
         // according to the category to new/used add vehicle activity
         categoryName = getIntent().getExtras().get("category").toString();
-        vehicleImageRef = FirebaseStorage.getInstance().getReference().child("Vehicle Images");
+        vehicleImageRef = FirebaseStorage.getInstance().getReference().child("ProductViewHolder Images");
         vehicleRef = FirebaseDatabase.getInstance().getReference().child("Vehicles");
 
         Toast.makeText(this, "Add " + categoryName, Toast.LENGTH_SHORT).show();
@@ -111,19 +111,19 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             Toast.makeText(this, "Image is Missing!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(vName)) {
-            Toast.makeText(this, "Vehicle's Name is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ProductViewHolder's Name is empty!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(vYear)) {
-            Toast.makeText(this, "Vehicle's Year is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ProductViewHolder's Year is empty!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(vMileage)) {
-            Toast.makeText(this, "Vehicle's Mileage is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ProductViewHolder's Mileage is empty!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(vDescription)) {
-            Toast.makeText(this, "Vehicle's Description is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ProductViewHolder's Description is empty!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(vPrice)) {
-            Toast.makeText(this, "Vehicle's Price is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ProductViewHolder's Price is empty!", Toast.LENGTH_SHORT).show();
         }else{
             StoreVehicleInfo();
         }
@@ -131,7 +131,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
 
     private void StoreVehicleInfo() {
-        loadingBar.setTitle("Adding Vehicle!");
+        loadingBar.setTitle("Adding ProductViewHolder!");
         loadingBar.setMessage("Please wait...");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
@@ -209,7 +209,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                     startActivity(intent);
 
                     loadingBar.dismiss();
-                    Toast.makeText(AdminAddNewProductActivity.this, "Vehicle is Added to DB!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminAddNewProductActivity.this, "ProductViewHolder is Added to DB!", Toast.LENGTH_SHORT).show();
                 }else {
                     loadingBar.dismiss();
                     String message = task.getException().toString();
