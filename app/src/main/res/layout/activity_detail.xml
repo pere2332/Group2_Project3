@@ -2,8 +2,9 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
     <RelativeLayout
+        android:background="@drawable/green"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="15dp">
@@ -13,10 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="product name"
-            android:textAlignment="center"
+            android:gravity="right"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/design_default_color_error" />
 
 
         <ImageView
@@ -33,10 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="product price"
+            android:textStyle="bold"
+            android:gravity="right"
             android:layout_below="@+id/product_image"
-            android:textAlignment="center"
             android:textSize="18dp"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/design_default_color_error" />
 
 
         <TextView
@@ -44,10 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="product description"
+            android:textStyle="bold"
+            android:gravity="right"
             android:layout_below="@+id/product_price"
-            android:textAlignment="center"
             android:textSize="16dp"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@android:color/holo_red_dark" />
 
         <Button
             android:id="@+id/addto_cart_button"

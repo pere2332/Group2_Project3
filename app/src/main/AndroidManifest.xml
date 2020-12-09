@@ -13,6 +13,7 @@
         <activity android:name=".AdminCategoryActivity" />
         <activity android:name=".AdminAddNewProductActivity" />
         <activity android:name=".UsedActivity" />
+        <activity android:name=".NewActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

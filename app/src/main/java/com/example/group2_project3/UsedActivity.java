@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,6 @@ public class UsedActivity extends AppCompatActivity { // new working version :)
         setContentView(R.layout.activity_used);
 
         reference = FirebaseDatabase.getInstance().getReference();
-
         mRecyclerView = findViewById(R.id.recycler_menu);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -46,6 +47,7 @@ public class UsedActivity extends AppCompatActivity { // new working version :)
     @Override
     protected void onStart() {
         super.onStart();
+
 
         // gets you from vehicles to newVehicles in firebase :)
         Query query = reference.child("Vehicles").orderByChild("category").equalTo("usedVehicles");

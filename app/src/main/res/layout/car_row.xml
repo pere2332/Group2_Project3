@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,6 +49,15 @@
             android:textAlignment="center"
             android:textSize="16dp"
             android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/detailButton"
+            android:layout_width="382dp"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_description"
+            android:text="car details" />
 
 
 
