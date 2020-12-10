@@ -36,12 +36,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        newButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                goToNewCar();
-//            }
-//        });
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToNewCar();
+            }
+        });
 
         usedButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +63,10 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    private void goToNewCar(){
-//        Intent intent = new Intent(this, NewActivity.class);
-//        startActivity(intent);
-//    }
+    private void goToNewCar(){
+        Intent intent = new Intent(this, NewCarPage.class);
+        startActivity(intent);
+    }
 
     private void goToVideo(){
         Intent intent = new Intent(this, VideoActivity.class);
