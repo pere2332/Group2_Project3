@@ -22,8 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ShoppingCartActivity extends AppCompatActivity {
-
-    private DatabaseReference cartRef;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button NextProcessBtn;
@@ -38,7 +36,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shopping_cart);
 
         totalAmount = getIntent().getStringExtra("Total Price");
-        cartRef = FirebaseDatabase.getInstance().getReference();
 
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
@@ -80,7 +77,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
             {
                 holder.txtProductPrice.setText("Price $" + model.getPrice());
                 holder.txtProductName.setText(model.getName());
-                holder.txtProductDescription.setText("Description: " + model.getVdescription());
                 overTotalPrice = overTotalPrice + Integer.valueOf(model.getPrice());
             }
 

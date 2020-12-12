@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.group2_project3.Model.ShoppingCart;
 import com.example.group2_project3.Model.Vehicles;
 import com.example.group2_project3.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,14 +22,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-import java.text.SimpleDateFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
     private Button addToCartBtn;
-    private Button goToCartBtn;
     private ImageView vehicleImage;
     private TextView vehicleName, vehiclePrice, vehicleDescription;
     private String vehicleID = "";
@@ -53,15 +51,6 @@ public class DetailActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 addingToCartList();
-            }
-        });
-
-        goToCartBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(DetailActivity.this, ShoppingCartActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -128,7 +117,7 @@ public class DetailActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task)
                                         {
                                             Toast.makeText(DetailActivity.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(DetailActivity.this, ShoppingCart.class);
+                                            Intent intent = new Intent(DetailActivity.this, HomeActivity.class);
                                             startActivity(intent);
                                         }
                                     });

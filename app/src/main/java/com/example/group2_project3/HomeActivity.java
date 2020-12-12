@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView usedButton;
     Button logoutButton;
     Button videoBtn;
+    Button goToCartBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         usedButton = findViewById(R.id.usedButton);
         logoutButton = findViewById(R.id.logoutButton);
         videoBtn = findViewById(R.id.videoButton);
+        goToCartBtn = findViewById(R.id.goto_cart_button);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +52,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        goToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCart();
+            }
+        });
+
         videoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToVideo();
             }
         });
+    }
+
+    private void goToCart() {
+        Intent intent = new Intent(this, ShoppingCartActivity.class);
+        startActivity(intent);
     }
 
     private void goToUsedCar(){
