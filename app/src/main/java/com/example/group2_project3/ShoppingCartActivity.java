@@ -20,10 +20,10 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 
 public class ShoppingCartActivity extends AppCompatActivity {
 
+    private DatabaseReference cartRef;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button NextProcessBtn;
@@ -38,6 +38,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shopping_cart);
 
         totalAmount = getIntent().getStringExtra("Total Price");
+        cartRef = FirebaseDatabase.getInstance().getReference();
 
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
@@ -64,11 +65,11 @@ public class ShoppingCartActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
         FirebaseRecyclerOptions<ShoppingCart> options =
                 new FirebaseRecyclerOptions.Builder<ShoppingCart> ()
                         .setQuery(cartListRef.child("User View")
-                                .child(Prevalent.currentOnlineUser.getPhone())
+                                .child(Prevalent.currentOnlineUser.getUsername())
                                 .child("Vehicles"), ShoppingCart.class)
                                 .build();
 
@@ -77,10 +78,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int i, @NonNull ShoppingCart model)
             {
-                holder.txtProductCategorey.setText("Categorey " + model.getCategory());
                 holder.txtProductPrice.setText("Price $" + model.getPrice());
                 holder.txtProductName.setText(model.getName());
-                Picasso.get().load(model.getImage()).into(holder.mImageView);
+                holder.txtProductDescription.setText("Description: " + model.getVdescription());
                 overTotalPrice = overTotalPrice + Integer.valueOf(model.getPrice());
             }
 

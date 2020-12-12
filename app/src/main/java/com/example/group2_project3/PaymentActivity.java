@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,8 +27,6 @@ public class PaymentActivity extends AppCompatActivity {
             addressEditText, stateEditText, cityEditText, zipEditText;
     private Button confirmOrderBtn;
     private String totalAmonut = "";
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -66,7 +63,7 @@ public class PaymentActivity extends AppCompatActivity {
         saveCurrentTime = currentDate.format(calForDate.getTime());
 
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders")
-                .child(Prevalent.currentOnlineUser.getPhone());
+                .child(Prevalent.currentOnlineUser.getUsername());
         HashMap<String, Object> ordersMap = new HashMap<>();
         ordersMap.put("totalAmount", totalAmonut);
         ordersMap.put("name", nameEditText.getText().toString());
@@ -85,7 +82,7 @@ public class PaymentActivity extends AppCompatActivity {
                 {
                     FirebaseDatabase.getInstance().getReference().child("Cart List")
                             .child("User View")
-                            .child(Prevalent.currentOnlineUser.getPhone())
+                            .child(Prevalent.currentOnlineUser.getUsername())
                             .removeValue()
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

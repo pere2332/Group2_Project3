@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.group2_project3.Model.ShoppingCart;
 import com.example.group2_project3.Model.Vehicles;
 import com.example.group2_project3.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
-
     private Button addToCartBtn;
     private Button goToCartBtn;
     private ImageView vehicleImage;
@@ -100,19 +100,19 @@ public class DetailActivity extends AppCompatActivity {
         saveCurrentDate = currentDate.format(calForDate.getTime());
 
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
+        saveCurrentTime = currentDate.format(calForDate.getTime());
 
-        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
 
         final HashMap<String, Object> cartMap = new HashMap<>();
-        cartMap.put("pid", vehicleID);
-        cartMap.put("product_name", vehicleName.getText().toString());
-        cartMap.put("product_image", vehicleImage);
-        cartMap.put("vehiclePrice", vehiclePrice);
-        cartMap.put("pdescription", vehicleDescription);
+        cartMap.put("vid", vehicleID);
+        cartMap.put("vName", vehicleName.getText().toString());
+        cartMap.put("vPrice", vehiclePrice.getText().toString());
+        cartMap.put("date", saveCurrentDate);
+        cartMap.put("time", saveCurrentTime);
 
-        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
-                .child("Products").child(vehicleID)
+        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getUsername())
+                .child("Vehicle").child(vehicleID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -120,15 +120,15 @@ public class DetailActivity extends AppCompatActivity {
                     {
                         if (task.isSuccessful())
                         {
-                            cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
-                                    .child("Products").child(vehicleID)
+                            cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getUsername())
+                                    .child("Vehicle").child(vehicleID)
                                     .updateChildren(cartMap)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task)
                                         {
                                             Toast.makeText(DetailActivity.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(DetailActivity.this, ShoppingCartActivity.class);
+                                            Intent intent = new Intent(DetailActivity.this, ShoppingCart.class);
                                             startActivity(intent);
                                         }
                                     });

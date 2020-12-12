@@ -1,6 +1,4 @@
 package com.example.group2_project3;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.group2_project3.Model.Users;
+import com.example.group2_project3.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -115,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                loadingBar.dismiss();
 
                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                               Prevalent.currentOnlineUser = usersD;
                                startActivity(intent);
                            }
 
