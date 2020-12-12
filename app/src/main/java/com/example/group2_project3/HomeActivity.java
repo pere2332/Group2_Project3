@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView usedButton;
     Button logoutButton;
     Button videoBtn;
+    Button goToCartBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         usedButton = findViewById(R.id.usedButton);
         logoutButton = findViewById(R.id.logoutButton);
         videoBtn = findViewById(R.id.videoButton);
+        goToCartBtn = findViewById(R.id.goto_cart_button);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,17 +38,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        newButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                goToNewCar();
-//            }
-//        });
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToNewCar();
+            }
+        });
 
         usedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToUsedCar();
+            }
+        });
+
+        goToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCart();
             }
         });
 
@@ -58,15 +67,20 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    private void goToCart() {
+        Intent intent = new Intent(this, ShoppingCartActivity.class);
+        startActivity(intent);
+    }
+
     private void goToUsedCar(){
         Intent intent = new Intent(this, UsedActivity.class);
         startActivity(intent);
     }
 
-//    private void goToNewCar(){
-//        Intent intent = new Intent(this, NewActivity.class);
-//        startActivity(intent);
-//    }
+    private void goToNewCar(){
+        Intent intent = new Intent(this, NewActivity.class);
+        startActivity(intent);
+    }
 
     private void goToVideo(){
         Intent intent = new Intent(this, VideoActivity.class);

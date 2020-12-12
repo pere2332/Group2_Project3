@@ -36,16 +36,33 @@
 
 
     <Button
+        android:id="@+id/goto_cart_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="CART VIEW"
+        android:textSize="30dp"
+        android:layout_below="@+id/usedButton"
+        app:layout_constraintBottom_toTopOf="@+id/videoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <Button
         android:id="@+id/videoButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:text="video show"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.98" />
 
     <Button
         android:id="@+id/logoutButton"
